@@ -1,3 +1,4 @@
+import 'package:api_app/features/auth/views/signup_view.dart';
 import 'package:api_app/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Hungry App',
     
-      home:SplashView(),
+      home:SignupView(),
     );
   }
 }
