@@ -1,5 +1,4 @@
-import 'package:api_app/features/auth/views/signup_view.dart';
-import 'package:api_app/splash.dart';
+import 'package:api_app/root.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Hungry App',
     
-      home:SignupView(),
+      home:Root(),
     );
   }
 }
