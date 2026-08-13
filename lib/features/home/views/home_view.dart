@@ -66,6 +66,8 @@ class _HomeViewState extends State<HomeView> {
                   index,
                 ) {
                   return CardItem(
+                    
+
                     text: 'Cheese Burger',
                     image: 'assets/images/test.png',
                     description: "Wendy's Burger",

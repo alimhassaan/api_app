@@ -1,7 +1,10 @@
+import 'package:api_app/core/constants/app_colors.dart';
 import 'package:api_app/shared/custom_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+// ignore: must_be_immutable
 class CardItem extends StatelessWidget {
   const CardItem({
     super.key,
@@ -26,6 +29,16 @@ class CardItem extends StatelessWidget {
             Gap(10),
             CustomText(text: text, weight: FontWeight.bold),
             CustomText(text: description),
+            Row(
+              children: [
+                // CustomText(
+                //   icon: Icon(Icons.star, color: AppColors.primary, size: 18),
+                //   text: '',
+                // ),
+                Spacer(),
+                Icon(CupertinoIcons.heart_fill, color: AppColors.primary),
+              ],
+            ),
           ],
         ),
       ),
