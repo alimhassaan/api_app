@@ -40,6 +40,7 @@ class _RootState extends State<Root> {
           color: AppColors.primary,
           borderRadius: BorderRadius.circular(30),
         ),
+
         child: BottomNavigationBar(
           elevation: 0,
           backgroundColor: Colors.transparent,

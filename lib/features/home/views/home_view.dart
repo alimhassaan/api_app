@@ -1,9 +1,8 @@
-import 'package:api_app/core/constants/app_colors.dart';
+import 'package:api_app/features/home/widgets/food_category.dart';
 import 'package:api_app/features/home/widgets/card_item.dart';
-import 'package:api_app/shared/custom_text.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:api_app/features/home/widgets/search_field.dart';
+import 'package:api_app/features/home/widgets/use_header.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 class HomeView extends StatefulWidget {
@@ -23,93 +22,37 @@ class _HomeViewState extends State<HomeView> {
       child: Scaffold(
         body: CustomScrollView(
           slivers: [
+            SliverAppBar(
+              elevation: 0,
+              floating: false,
+              pinned: true,
+              toolbarHeight: 160,
+              scrolledUnderElevation: 0,
+              backgroundColor: Colors.white,
+              automaticallyImplyLeading: false,
+              flexibleSpace: Padding(
+                padding: EdgeInsets.only(top: 38, right: 20, left: 20),
+                child: Column(children: [UserHeader(), Gap(20), SearchField()]),
+              ),
+            ),
             SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15.0),
                 child: Column(
                   children: [
-                    Gap(75),
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SvgPicture.asset(
-                              'assets/logo/logo.svg',
-                              // ignore: deprecated_member_use
-                              color: AppColors.primary,
-                              height: 35,
-                            ),
-                            Gap(5),
-
-                            CustomText(
-                              text: 'Hello, Ali!',
-                              size: 16,
-                              weight: FontWeight.bold,
-                              color: Colors.grey,
-                            ),
-                          ],
-                        ),
-                        Spacer(),
-                        CircleAvatar(radius: 31),
-                      ],
-                    ),
-                    Gap(20),
-                    Material(
-                      elevation: 4,
-                      shadowColor: Colors.grey,
-                      borderRadius: BorderRadius.circular(15),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          prefixIcon: Icon(CupertinoIcons.search),
-                          hintText: 'Search..',
-                          fillColor: Colors.white,
-                          filled: true,
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Gap(10),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: List.generate(category.length, (index) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedIndex = index;
-                              });
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(right: 8),
-                              decoration: BoxDecoration(
-                                color: selectedIndex == index
-                                    ? AppColors.primary
-                                    : Color(0xffF3F4F6),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 27,
-                                vertical: 15,
-                              ),
-                              child: CustomText(
-                                text: category[index],
-                                weight: FontWeight.w600,
-                                color: selectedIndex == index
-                                    ? Colors.white
-                                    : Colors.black,
-                              ),
-                            ),
-                          );
-                        }),
-                      ),
+                    // Gap(75),
+                    // UseHeader(),
+                    // Gap(25),
+                    // SearchField(),
+                    // Gap(20),
+                    FoodCategory(
+                      categories: List<String>.from(category),
+                      selectedIndex: selectedIndex,
+                      onCategorySelected: (index) {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      },
                     ),
                   ],
                 ),
