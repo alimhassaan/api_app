@@ -1,4 +1,3 @@
-import 'package:api_app/core/constants/app_colors.dart';
 import 'package:api_app/features/product/widgets/spicy_slider.dart';
 import 'package:api_app/features/product/widgets/topping_card.dart';
 import 'package:api_app/shared/custom_button.dart';
