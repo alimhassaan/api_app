@@ -2,6 +2,7 @@ import 'package:api_app/features/home/widgets/food_category.dart';
 import 'package:api_app/features/home/widgets/card_item.dart';
 import 'package:api_app/features/home/widgets/search_field.dart';
 import 'package:api_app/features/home/widgets/use_header.dart';
+import 'package:api_app/features/product/views/product_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -65,12 +66,22 @@ class _HomeViewState extends State<HomeView> {
                   context,
                   index,
                 ) {
-                  return CardItem(
-                    
-
-                    text: 'Cheese Burger',
-                    image: 'assets/images/test.png',
-                    description: "Wendy's Burger",
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ProductDetailsView();
+                          },
+                        ),
+                      );
+                    },
+                    child: CardItem(
+                      text: 'Cheese Burger',
+                      image: 'assets/images/test.png',
+                      description: "Wendy's Burger",
+                    ),
                   );
                 }),
 
