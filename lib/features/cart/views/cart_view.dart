@@ -1,3 +1,6 @@
+import 'package:api_app/features/cart/widgets/cart_item.dart';
+import 'package:api_app/shared/custom_button.dart';
+import 'package:api_app/shared/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class CartView extends StatelessWidget {
@@ -6,7 +9,38 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('Test'),),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Column(
+          children: List.generate(4, (index) {
+            return CartItem(
+              image: 'assets/images/test.png',
+              text: 'Humburger',
+              description: 'Veggie burger',
+              number: 1,
+            );
+          }),
+        ),
+      ),
+      bottomSheet: Container(
+        padding: const EdgeInsets.all(20),
+
+        height: 100,
+        width: double.infinity,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(text: 'Total', size: 16, weight: FontWeight.bold),
+                CustomText(text: '\$ 18.9', size: 24, weight: FontWeight.bold),
+              ],
+            ),
+            CustomButton(text: 'Checkout', onTap: () {}),
+          ],
+        ),
+      ),
     );
   }
 }

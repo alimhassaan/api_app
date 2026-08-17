@@ -93,12 +93,12 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                     children: [
                       CustomText(
                         text: 'Total',
-                        size: 20,
+                        size: 16,
                         weight: FontWeight.bold,
                       ),
                       CustomText(
                         text: '\$ 18.9',
-                        size: 27,
+                        size: 24,
                         weight: FontWeight.bold,
                       ),
                     ],
