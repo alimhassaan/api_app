@@ -1,6 +1,7 @@
 // ignore_for_file: invalid_annotation_target, unused_element
 
 import 'package:api_app/features/cart/widgets/cart_item.dart';
+import 'package:api_app/features/checkout/views/checkout_view.dart';
 import 'package:api_app/shared/custom_button.dart';
 import 'package:api_app/shared/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -83,7 +84,17 @@ class _CartViewState extends State<CartView> {
                 CustomText(text: '\$ 18.9', size: 24, weight: FontWeight.bold),
               ],
             ),
-            CustomButton(text: 'Checkout', onTap: () {}),
+            CustomButton(
+              text: 'Checkout',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const CheckoutView()),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
