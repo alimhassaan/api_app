@@ -1,3 +1,4 @@
+import 'package:api_app/core/constants/app_colors.dart';
 import 'package:api_app/shared/custom_button.dart';
 import 'package:api_app/shared/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class OrderHistoryView extends StatelessWidget {
                     Gap(20),
                     CustomButton(
                       text: "Order Again",
-                      color: Colors.grey.shade400,
+                      color: AppColors.primary,
                       width: double.infinity,
                     ),
                   ],
