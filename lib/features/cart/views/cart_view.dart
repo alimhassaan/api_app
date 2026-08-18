@@ -11,8 +11,10 @@ class CartView extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Column(
-          children: List.generate(4, (index) {
+        child: ListView.builder(
+          padding: EdgeInsets.only(bottom: 120, top: 100),
+          itemCount: 4,
+          itemBuilder: ((context, index) {
             return CartItem(
               image: 'assets/images/test.png',
               text: 'Humburger',
