@@ -1,4 +1,4 @@
-import 'package:api_app/splash.dart';
+import 'package:api_app/features/auth/views/login_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Hungry App',
       theme: ThemeData(scaffoldBackgroundColor: Colors.white),
-      home: SplashView(),
+      home: LoginView(),
     );
   }
 }

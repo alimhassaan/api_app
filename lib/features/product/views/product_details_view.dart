@@ -43,7 +43,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
               ),
               Gap(20),
               CustomText(text: 'Toppings', size: 20, weight: FontWeight.bold),
-              Gap(20),
+              Gap(50),
               // ToppingCard(name: 'Tomato', image: 'assets/images/tomato.png'),
               SingleChildScrollView(
                 clipBehavior: Clip.none,
@@ -51,10 +51,11 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 child: Row(
                   children: List.generate(4, (index) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      padding: const EdgeInsets.only(right: 10),
                       child: ToppingCard(
                         name: 'Tomato',
                         image: 'assets/images/tomato.png',
+                        onAdd: () {},
                       ),
                     );
                   }),
@@ -67,7 +68,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 size: 20,
                 weight: FontWeight.bold,
               ),
-              Gap(20),
+              Gap(50),
               // ToppingCard(name: 'Tomato', image: 'assets/images/tomato.png'),
               SingleChildScrollView(
                 clipBehavior: Clip.none,
@@ -75,7 +76,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 child: Row(
                   children: List.generate(4, (index) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      padding: const EdgeInsets.only(right: 10),
                       child: ToppingCard(
                         name: 'Tomato',
                         image: 'assets/images/tomato.png',
@@ -84,30 +85,42 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   }),
                 ),
               ),
-              Gap(50),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+              Gap(200),
+            ],
+          ),
+        ),
+      ),
+      bottomSheet: Container(
+        height: 120,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade800,
+              blurRadius: 15,
+              offset: Offset(0, 0),
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      CustomText(
-                        text: 'Total',
-                        size: 16,
-                        weight: FontWeight.bold,
-                      ),
-                      CustomText(
-                        text: '\$ 18.9',
-                        size: 24,
-                        weight: FontWeight.bold,
-                      ),
-                    ],
+                  CustomText(text: 'Total', size: 16, weight: FontWeight.bold),
+                  CustomText(
+                    text: '\$ 18.9',
+                    size: 24,
+                    weight: FontWeight.bold,
                   ),
-                  CustomButton(text: 'Add To Cart', onTap: () {}),
                 ],
               ),
-
-              Gap(100),
+              CustomButton(text: 'Add To Cart', onTap: () {}),
             ],
           ),
         ),

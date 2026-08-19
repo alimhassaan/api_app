@@ -163,7 +163,7 @@ class _CheckoutViewState extends State<CheckoutView> {
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: 10,
-                            vertical: 250,
+                            vertical: 200,
                           ),
                           child: Container(
                             width: 300,
@@ -188,7 +188,7 @@ class _CheckoutViewState extends State<CheckoutView> {
                                   child: Icon(
                                     CupertinoIcons.check_mark,
                                     color: Colors.white,
-                                    size: 50,
+                                    size: 30,
                                   ),
                                 ),
                                 Gap(10),

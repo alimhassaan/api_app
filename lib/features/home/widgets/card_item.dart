@@ -25,16 +25,13 @@ class CardItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(image, width: 180),
+            Center(child: Image.asset(image, width: 120, height: 120)),
             Gap(10),
             CustomText(text: text, weight: FontWeight.bold),
             CustomText(text: description),
             Row(
               children: [
-                // CustomText(
-                //   icon: Icon(Icons.star, color: AppColors.primary, size: 18),
-                //   text: '',
-                // ),
+               
                 Spacer(),
                 Icon(CupertinoIcons.heart_fill, color: AppColors.primary),
               ],

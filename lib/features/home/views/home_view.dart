@@ -41,11 +41,6 @@ class _HomeViewState extends State<HomeView> {
                 padding: EdgeInsets.symmetric(horizontal: 15.0),
                 child: Column(
                   children: [
-                    // Gap(75),
-                    // UseHeader(),
-                    // Gap(25),
-                    // SearchField(),
-                    // Gap(20),
                     FoodCategory(
                       categories: List<String>.from(category),
                       selectedIndex: selectedIndex,
@@ -87,7 +82,7 @@ class _HomeViewState extends State<HomeView> {
 
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 0.7,
+                  childAspectRatio: 0.75,
                 ),
               ),
             ),
