@@ -1,11 +1,10 @@
 import 'package:api_app/core/constants/app_colors.dart';
 import 'package:api_app/shared/custom_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 // ignore: must_be_immutable
-class CardItem extends StatelessWidget {
+class CardItem extends StatefulWidget {
   const CardItem({
     super.key,
     required this.image,
@@ -17,6 +16,12 @@ class CardItem extends StatelessWidget {
   final String description;
 
   @override
+  State<CardItem> createState() => _CardItemState();
+}
+
+class _CardItemState extends State<CardItem> {
+  bool isSelected = false;
+  @override
   Widget build(BuildContext context) {
     return Card(
       color: Colors.white,
@@ -25,15 +30,40 @@ class CardItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: Image.asset(image, width: 120, height: 120)),
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Positioned(
+                  bottom: -10,
+                  right: 0,
+                  left: 0,
+
+                  child: Image.asset('assets/icons/shadow.png'),
+                ),
+                Center(
+                  child: Image.asset(widget.image, width: 120, height: 120),
+                ),
+              ],
+            ),
             Gap(10),
-            CustomText(text: text, weight: FontWeight.bold),
-            CustomText(text: description),
+            CustomText(text: widget.text, weight: FontWeight.bold),
+            CustomText(text: widget.description),
             Row(
               children: [
-               
                 Spacer(),
-                Icon(CupertinoIcons.heart_fill, color: AppColors.primary),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isSelected = !isSelected;
+                    });
+                  },
+                  child: isSelected
+                      ? Icon(Icons.favorite, color: AppColors.primary)
+                      : Icon(
+                          Icons.favorite_border_outlined,
+                          color: AppColors.primary,
+                        ),
+                ),
               ],
             ),
           ],

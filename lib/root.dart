@@ -16,10 +16,13 @@ class Root extends StatefulWidget {
 class _RootState extends State<Root> {
   late PageController controller;
   late List<Widget> screens;
+
   int currentScreen = 0;
+
   @override
   void initState() {
     screens = [HomeView(), CartView(), OrderHistoryView(), ProfileView()];
+
     controller = PageController(initialPage: currentScreen);
 
     super.initState();
@@ -28,17 +31,34 @@ class _RootState extends State<Root> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.primary,
+
       body: PageView(
         controller: controller,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: screens,
       ),
 
       bottomNavigationBar: Container(
-        padding: EdgeInsets.all(10),
+        margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+        padding: const EdgeInsets.all(10),
+
         decoration: BoxDecoration(
           color: AppColors.primary,
-          borderRadius: BorderRadius.circular(30),
+
+          // الكيرف من فوق فقط
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.15),
+              blurRadius: 10,
+              offset: const Offset(0, 3),
+            ),
+          ],
         ),
 
         child: BottomNavigationBar(
@@ -48,12 +68,14 @@ class _RootState extends State<Root> {
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.grey.shade700.withValues(alpha: 0.7),
           currentIndex: currentScreen,
+
           onTap: (index) {
             setState(() {
               currentScreen = index;
             });
             controller.jumpToPage(currentScreen);
           },
+
           items: [
             BottomNavigationBarItem(
               label: 'Home',
